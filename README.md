@@ -1,12 +1,15 @@
 ## Moodle block for marking your favourite pages as bookmarks
 
-In brief, the ldesignmedia block `user_favorites` gives the user a method to mark pages as favourite.
+In brief, user_favorites gives the user a method to mark pages as favourite.
 
-Special thanks to Gemma Lesterhuis ([Lesterhuis Training & Consultancy](https://ltnc.nl/)) for develop & design, useful
-input, bug reports and beta testing
+This module is
+* Financed and Developed for clients of LTNC B.V. 
+* Designed, Tested, Supported and Financed Maintained by ([TNC B.V.](https://ltnc.nl/))
+* Developed by [ldesignmedia.nl](https://ldesignmedia.nl/)
 
-![ldesignmedia.nl](https://ldesignmedia.nl/logo_small.png)
-![Lesterhuis Training & Consultancy](https://ldesignmedia.nl/logo_small_ltnc.png)
+Special thanks to
+- For the inspiration [block_user_bookmarks](https://moodle.org/plugins/block_user_bookmarks)
+- Valuable contributions to enchance the plugin: @stopfstedt, 2gjb2048, and @SashaAnastasi 
 
 * Author: Luuk Verhoeven, [ldesignmedia.nl](https://ldesignmedia.nl/)
 * Author: Gemma Lesterhuis, [Lesterhuis Training & Consultancy](https://ltnc.nl/)
@@ -44,18 +47,30 @@ input, bug reports and beta testing
 
 See [Changelog](CHANGELOG.md) file for details
 
-## Security
+## Bug and Problem support
 
-If you discover any security related issues, please email [luuk@ldesignmedia.nl](mailto:luuk@ldesignmedia.nl) instead of using the
-issue tracker.
+This plugin is carefully developed and thoroughly tested, but bugs and problems can always appear.
+If you discover any security related issues, please email [servicedesk@ltnc.nl](mailto:servicedesk@ltnc.nl) instead of using the issue tracker.
+
+Please bear in mind that bug and problem support is not free of charge. This is with the exception of developers that report and suggest a solution by creating a pull request. 
+Support is included for customers with an active LTNC Moodle Addon Maintenance Program subscription. For more information send an email to [sales@ltnc.nl](mailto:sales@ltnc.nl)
+
+## Feature proposal
+We are aware that members of the community will have other needs and would love to see them solved by this plugin. We are always interested to read about your feature proposals or even get a pull request from you, but please understand that we handle these as feature proposals and not as feature requests that we commit to implementing.
+
+If you would like to see your feature proposal developed and included in our code base, please send an email to [sales@ltnc.nl](mailto:sales@ltnc.nl) with your suggestion so we can send you a formal proposal for paid development. 
+
+Please bear in mind that new features will only be added to Main Branch and only for Moodle versions that are in Current Stable release states (see [Moodle Release](https://moodledev.io/general/releases) for more information).
+
+Customers with an active LTNC Moodle Addon Maintenance Program subscription may receive priority consideration for their feature proposals.
 
 ## License
 
-The GNU GENERAL PUBLIC LICENSE. Please see [License File](LICENSE) for more information.
+Local Oauthdirectsso code is provided freely as open source software, under version 3 of the GNU General Public License.
+
 
 ## Contributing
 
 Contributions are welcome and will be fully credited. We accept contributions via Pull Requests on Github.
 
-- Thanks for the inspiration [block_user_bookmarks](https://moodle.org/plugins/block_user_bookmarks)
-- Thank you to @stopfstedt, 2gjb2048, and @SashaAnastasi for your valuable contributions to enhancing the plugin.
+
