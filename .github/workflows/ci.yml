@@ -1,7 +1,7 @@
 # .github/workflows/ci.yml
 name: ci
 
-on: [push, pull_request]
+on: [ push, pull_request ]
 
 jobs:
   test:
@@ -14,5 +14,6 @@ jobs:
       disable_grunt: true
       disable_phpunit: true
       disable_release : true
+      moodle_branches: MOODLE_402_STABLE
       release_branches: main
       min_php : 7.4
