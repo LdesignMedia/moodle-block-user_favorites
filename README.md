@@ -15,6 +15,7 @@ Special thanks to
 ![Moodle402](https://img.shields.io/badge/moodle-4.2-brightgreen.svg)
 ![Moodle403](https://img.shields.io/badge/moodle-4.3-brightgreen.svg)
 ![Moodle404](https://img.shields.io/badge/moodle-4.4-brightgreen.svg)
+![Moodle500](https://img.shields.io/badge/moodle-5.0-brightgreen.svg)
 
 ![PHP74](https://img.shields.io/badge/php-7.4-teal.svg)
 ![PHP80](https://img.shields.io/badge/php-8.0-teal.svg)
