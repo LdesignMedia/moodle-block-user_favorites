@@ -14,5 +14,5 @@ jobs:
       disable_phpunit: true
       disable_behat: true
       moodle_branches: MOODLE_500_STABLE
-      release_branches: main
+      release_branches: master
       min_php: 7.4
