@@ -14,6 +14,6 @@ jobs:
       disable_grunt: true
       disable_phpunit: true
       disable_release : true
-      moodle_branches: MOODLE_402_STABLE
+      moodle_branches: MOODLE_500_STABLE
       release_branches: main
       min_php : 7.4
