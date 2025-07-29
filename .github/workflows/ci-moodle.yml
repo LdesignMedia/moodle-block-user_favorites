@@ -1,5 +1,5 @@
 # .github/workflows/ci.yml
-name: ci
+name: ci-moodle
 
 on: [ push, pull_request ]
 
