@@ -35,6 +35,9 @@ Types of changes
 * **Fixed** for any bug fixes.
 * **Security** in case of vulnerabilities.
 
+## Version (5.0.0) - 2025-07-29
+- Tested and refactored for Moodle (LMS) 5.0
+
 ## Version (4.4.1) - 2024-06-18
 - Improve styling by SnakyJake https://github.com/Lesterhuis-Training-en-Consultancy/moodle-block-user_favorites/pull/35
 
