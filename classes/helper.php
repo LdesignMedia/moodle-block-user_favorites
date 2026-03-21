@@ -64,7 +64,7 @@ class helper {
         ]);
 
         foreach ($rs as $row) {
-            $favorites = @unserialize($row->value);
+            $favorites = unserialize($row->value, ['allowed_classes' => false]);
 
             if (empty($favorites)) {
                 continue;

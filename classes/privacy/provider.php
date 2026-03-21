@@ -248,7 +248,7 @@ class provider implements
      * @throws \dml_exception
      * @throws coding_exception
      */
-    private static function get_urls($userid) {
+    private static function get_urls(int $userid): array {
         $favorites = new favorites($userid);
 
         // Todo convert timestamp to readable format.

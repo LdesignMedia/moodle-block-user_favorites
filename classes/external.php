@@ -132,7 +132,7 @@ class external extends external_api {
         if (!empty($params['optional']['url'])) {
 
             if (!filter_var($params['optional']['url'], FILTER_VALIDATE_URL)) {
-                throw new moodle_exception('Incorrect url.');
+                throw new moodle_exception('invalidurl', 'block_user_favorites');
             }
 
             $favorites->set_by_url($params['optional']['url'], $params['title']);

@@ -14,17 +14,18 @@
 // along with Moodle.  If not, see <http://www.gnu.org/licenses/>.
 
 /**
- * Tested in Moodle 3.5 / 3.9 / 4.2 / 4.3
+ * Block user favorites AMD module.
  *
  * @license   http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
- * @copyright 2018 MFreak.nl
+ * @copyright 2018 MFreak.nl | LdesignMedia.nl
  * @author    Luuk Verhoeven
  **/
 
 /* eslint no-unused-expressions: "off", no-console:off, no-invalid-this:"off",no-script-url:"off", block-scoped-var: "off" */
-define(['jquery', 'core/ajax', 'core/notification', 'core/log', 'core/sortable_list'],
-    function($, Ajax, Notification, Log, SortableList) {
+define(['jquery', 'core/ajax', 'core/notification', 'core/log', 'core/sortable_list', 'core/modal_factory',
+    'core/modal_events', 'core/str'],
+    function($, Ajax, Notification, Log, SortableList, ModalFactory, ModalEvents, Str) {
 
         /**
          * Opts that are possible to set.
@@ -95,18 +96,27 @@ define(['jquery', 'core/ajax', 'core/notification', 'core/log', 'core/sortable_l
                 // Remove not correct closed confirm dialogs.
                 $('.modal').remove();
 
-                Notification.confirm(M.util
-                        .get_string('javascript:set_title', 'block_user_favorites'),
-                    '<input class="form-control" id="favorite-url" value="'
-                    + title + '">', M.util.get_string('javascript:yes', 'block_user_favorites'),
-                    M.util.get_string('javascript:no', 'block_user_favorites'), function() {
-
+                Str.get_strings([
+                    {key: 'javascript:set_title', component: 'block_user_favorites'},
+                    {key: 'javascript:yes', component: 'block_user_favorites'},
+                    {key: 'javascript:no', component: 'block_user_favorites'},
+                ]).then(function(strings) {
+                    return ModalFactory.create({
+                        type: ModalFactory.types.SAVE_CANCEL,
+                        title: strings[0],
+                        body: '<input class="form-control" id="favorite-url" value="'
+                            + title.replace(/"/g, '&quot;') + '">',
+                    });
+                }).then(function(modal) {
+                    modal.setSaveButtonText(Str.get_string('javascript:yes', 'block_user_favorites'));
+                    modal.getRoot().on(ModalEvents.save, function() {
                         let request = Ajax.call([{
                             methodname: 'block_user_favorites_set_url', args: {
                                 hash: data.hash,
                                 optional: {
                                     url: data.url,
-                                }, title: $('.modal-dialog #favorite-url').val(),
+                                },
+                                title: modal.getRoot().find('#favorite-url').val(),
                                 blockid: opts.id,
                             }
                         }]);
@@ -116,6 +126,9 @@ define(['jquery', 'core/ajax', 'core/notification', 'core/log', 'core/sortable_l
                             favoritesModule.reload();
                         }).fail(Notification.exception);
                     });
+                    modal.show();
+                    return modal;
+                }).catch(Notification.exception);
             },
 
             /**
@@ -190,14 +203,14 @@ define(['jquery', 'core/ajax', 'core/notification', 'core/log', 'core/sortable_l
                         'hash': opts.hash,
                     });
 
-                }).on('click', '.fa-remove', function() {
+                }).on('click', '.favorite-remove', function() {
                     // Remove a fav in the list.
                     favoritesModule.remove($(this).closest('li').data());
 
-                }).on('click', '.fa-edit', function() {
+                }).on('click', '.favorite-edit', function() {
                     // Edit a fav int the list.
                     let data = $(this).parent().parent().data();
-                    Log.log('.fa-edit');
+                    Log.log('.favorite-edit');
                     Log.log(data);
                     data.url = null;
                     favoritesModule.setUrl(data, $(this).parent().parent().find('a').text());
@@ -222,12 +235,8 @@ define(['jquery', 'core/ajax', 'core/notification', 'core/log', 'core/sortable_l
 
                 // Set internal debug console.
                 Log.log(opts.debugjs);
-
-                $.noConflict();
-                $(document).ready(function() {
-                    Log.log('Block User Favorites v1.2');
-                    favoritesModule.init();
-                });
+                Log.log('Block User Favorites v2.0');
+                favoritesModule.init();
             }
         };
     });

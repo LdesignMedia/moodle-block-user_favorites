@@ -56,3 +56,6 @@ $string['privacy:metadata:favorite:hash'] = 'The hash (identifier) of the favour
 $string['privacy:metadata:favorite:title'] = 'The title of the favourite link';
 $string['privacy:metadata:favorite:created_at'] = 'The timestamp the favourite link is created';
 $string['privacy:metadata:favorite'] = 'Information about the user\'s favourites';
+
+// Errors.
+$string['invalidurl'] = 'The provided URL is invalid.';

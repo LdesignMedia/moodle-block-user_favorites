@@ -86,11 +86,11 @@ class block_user_favorites extends block_base {
     /**
      * The content object.
      *
-     * @return stdClass
+     * @return stdClass|null
      * @throws coding_exception
      * @throws moodle_exception
      */
-    public function get_content(): stdClass {
+    public function get_content(): ?stdClass {
         global $USER;
 
         if ($this->content !== null) {

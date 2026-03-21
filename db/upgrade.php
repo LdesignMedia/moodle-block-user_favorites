@@ -31,7 +31,7 @@
  *
  * @return bool
  */
-function xmldb_block_user_favorites_upgrade($oldversion) {
+function xmldb_block_user_favorites_upgrade(int $oldversion): bool {
 
     global $DB;
     $dbman = $DB->get_manager();

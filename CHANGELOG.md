@@ -2,120 +2,58 @@
 
 All notable changes to this project will be documented in this file.
 
-The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/)
+## 5.1.0 (2026032100)
+- Tested and verified on Moodle 5.1
+- Updated supported version range to Moodle 4.2 - 5.1
+- Updated README to uniform LdesignMedia format
+- Added SECURITY.md
 
-# Plugin version.php information
-
-```php
-// Example
-
-// Plugin release number corresponds to the lasest tested Moodle version in which the plugin has been tested.
-$plugin->release = '3.5.7'; // [3.5.7]
-
-// Plugin version number corresponds to the latest plugin version.
-$plugin->version = 2023030200; // 2023-03-02
-```
-
-# How do I make a good changelog?
-
-Guiding Principles
-
-* Changelogs are for humans, not machines.
-* There should be an entry for every single version.
-* The same types of changes should be grouped.
-* The latest version comes first.
-* The release date of each version is displayed.
-
-Types of changes
-
-* **Added** for new features.
-* **Changed** for changes in existing functionality.
-* **Deprecated** for soon-to-be removed features.
-* **Removed** for now removed features.
-* **Fixed** for any bug fixes.
-* **Security** in case of vulnerabilities.
-
-## Version (5.0.0) - 2025-07-29
+## 5.0.0 (2025072900)
 - Tested and refactored for Moodle (LMS) 5.0
 
-## Version (4.4.1) - 2024-06-18
-- Improve styling by SnakyJake https://github.com/Lesterhuis-Training-en-Consultancy/moodle-block-user_favorites/pull/35
+## 4.4.1 (2024061800)
+- Improve styling by SnakyJake ([#35](https://github.com/Lesterhuis-Training-en-Consultancy/moodle-block-user_favorites/pull/35))
 
-## Version (4.4.0) - 2024-04-05
+## 4.4.0 (2024040500)
 - Tested for Moodle (LMS) 4.4 and PHP 8.1
 
-## Version (4.3.0) - 2024-02-16
+## 4.3.0 (2024021600)
 - Tested and refactored for Moodle (LMS) 4.3
 
-## Version (4.2.0) - 2023-12-20
+## 4.2.0 (2023122000)
 - Branche 4.2 for just 4.2 use
 - Validation M4.2
 
-## Version (4.1.3) - 2023-12-20
+## 4.1.3 (2023122000)
+- Fix incorrect security risk flags on the capabilities
+- Fix issue moving favorites ([#23](https://github.com/Lesterhuis-Training-en-Consultancy/moodle-block-user_favorites/issues/23))
 
-##### Update
-- Fix incorrect security risk flags on the capabilites.
-- Fix issue moving favorites #23
+## 4.1.2 (2023050900)
+- Fix Block drawer breaks in Moodle 4.1 ([#16](https://github.com/Lesterhuis-Training-en-Consultancy/moodle-block-user_favorites/issues/16)) - thanks to @stopfstedt
 
-## Version (4.1.2) - 2023-05-09
+## 4.1.1 (2023030200)
+- Move externallib.php to namespaced external API
+- Functionality to sort the user favorites using AJAX requests
+- Allow user to mark a page with # as favorite
 
-##### Update
-- Fix Block drawer breaks in Moodle 4.1 #16 thanks to @stopfstedt for the contribution (https://github.com/Lesterhuis-Training-en-Consultancy/moodle-block-user_favorites/releases/tag/v4.1.2)
+## 3.10.1 (2020111400)
+- Updated version number, no issues found
+- Removed `.eslintrc`, `Gruntfile.js` and `packages.json` (caused Travis issues)
 
-## Version (4.1.1) - 2023-03-02
+## 3.9.1 (2020071200)
+- Fix external API nested Optional url (thanks @ewallah)
 
-##### Update
-- Move externallib.php to namespaced external API.
-
-##### Added
-- Functionality to sort the user favorites usin AJAX requests
-- Update version number to 4.1.1 no issues found
-- Testen on PHP 8 - no issues found
-- Allow user to mark a page with # as favorite.
-
-## Version (3.10.1) - 2020-11-14
-
-##### Added
-- Updated version number, no issues found.
-
-##### Changed
-
-- Updated version number, no issues found.
-
-##### Removed
-
-- Remove `.eslintrc` `Gruntfile.js` and `packages.json` from the project causes Travis issues.
-
-## Version (3.9.1) - 2020-07-12
-
-##### Fix
-
-- GH-8 External API nested Optional url (Thanks @ewallah)
-
-## Version (3.9) - 2020-05-06
-
-##### Changed
-
-- Updated version number, no issues found.
+## 3.9.0 (2020050600)
+- Updated version number, no issues found
 - Minimum version PHP 7.2
 
-## Version (3.8) - 2019-10-30
+## 3.8.0 (2019103000)
+- Updated version number, no issues found
 
-##### Changed
+## 3.7.2 (2019091700)
+- Saving user favourites to a separate table ([#3](https://github.com/MFreakNL/moodle-block-user_favorites/issues/3))
+- Upgrade script `user_preference` -> `block_user_favorites` using a separate table
+- Implement privacy provider for the new table
 
-- Updated version number, no issues found.
-
-## Version (3.7.2) - 2019-09-17
-
-##### Fixed
-
-- [ISSUE #3](https://github.com/MFreakNL/moodle-block-user_favorites/issues/3) Saving user favourites to a separate
-  table.
-- Upgrade script `user_preference` -> `block_user_favorites` using a separate table.
-- Implement privacy provider for the new table.
-
-## Version (3.5.3) - 2019-05-20
-
-##### Added
-
-- Release of the first official stable version.
+## 3.5.3 (2019052000)
+- Release of the first official stable version
