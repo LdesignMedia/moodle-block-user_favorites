@@ -20,14 +20,15 @@
  * @license    http://www.gnu.org/copyleft/gpl.html GNU GPL v3 or later
  *
  * @package    block_user_favorites
- * @copyright  26-10-2018 MFreak.nl
+ * @copyright  26-10-2018 MFreak.nl | LdesignMedia.nl
  * @author     Luuk Verhoeven
  **/
 
 defined('MOODLE_INTERNAL') || die;
 
-$plugin->version = 2025072900;
+$plugin->version = 2026032100;
 $plugin->requires = 2023042401;
 $plugin->component = 'block_user_favorites';
-$plugin->release = '5.0.0';
+$plugin->release = '5.1.0';
 $plugin->maturity = MATURITY_STABLE;
+$plugin->supported = [402, 501];

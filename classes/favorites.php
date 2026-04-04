@@ -35,7 +35,6 @@ use dml_exception;
  * @copyright  26-10-2018 MFreak.nl
  */
 class favorites {
-
     /**
      * @var int $userid User id
      */
@@ -194,5 +193,4 @@ class favorites {
             $this->userid
         );
     }
-
 }

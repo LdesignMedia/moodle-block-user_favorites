@@ -36,7 +36,6 @@ use dml_exception;
  * @copyright  26-10-2018 MFreak.nl
  */
 class helper {
-
     /**
      * We are in DEBUG mode display more info than general.
      *
@@ -64,7 +63,7 @@ class helper {
         ]);
 
         foreach ($rs as $row) {
-            $favorites = @unserialize($row->value);
+            $favorites = unserialize($row->value, ['allowed_classes' => false]);
 
             if (empty($favorites)) {
                 continue;
@@ -72,9 +71,7 @@ class helper {
 
             $favoriteinstance = new favorites($row->userid);
             array_walk($favorites, [$favoriteinstance, 'update_favorite'], $row->userid);
-
         }
         $rs->close();
     }
-
 }

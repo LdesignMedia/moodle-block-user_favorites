@@ -47,7 +47,6 @@ use required_capability_exception;
  * @author    Hamza Tamyachte
  **/
 class external extends external_api {
-
     /**
      * If everything goes according plan, we can use this code.
      * RESPONSE_CODE_SUCCESS
@@ -86,13 +85,12 @@ class external extends external_api {
      * @return external_function_parameters
      */
     public static function set_order_parameters(): external_function_parameters {
-        return new external_function_parameters (
+        return new external_function_parameters(
             [
                 'hash' => new external_value(PARAM_TEXT, 'URL HASH', VALUE_REQUIRED),
                 'sortorder' => new external_value(PARAM_INT, 'The sortorder of the block', VALUE_REQUIRED),
             ]
         );
-
     }
 
     /**
@@ -104,7 +102,8 @@ class external extends external_api {
         return new external_single_structure(
             [
                 'result_code' => new external_value(PARAM_INT, 'The response code', VALUE_REQUIRED),
-            ]);
+            ]
+        );
     }
 
     /**
@@ -124,15 +123,16 @@ class external extends external_api {
         global $USER;
 
         // Parameter validation.
-        $params = self::validate_parameters(self::set_url_parameters(),
-            ['hash' => $hash, 'title' => $title, 'blockid' => $blockid, 'optional' => $optional]);
+        $params = self::validate_parameters(
+            self::set_url_parameters(),
+            ['hash' => $hash, 'title' => $title, 'blockid' => $blockid, 'optional' => $optional]
+        );
 
         require_capability('block/user_favorites:add', context_block::instance($params['blockid']), $USER);
         $favorites = new favorites();
         if (!empty($params['optional']['url'])) {
-
             if (!filter_var($params['optional']['url'], FILTER_VALIDATE_URL)) {
-                throw new moodle_exception('Incorrect url.');
+                throw new moodle_exception('invalidurl', 'block_user_favorites');
             }
 
             $favorites->set_by_url($params['optional']['url'], $params['title']);
@@ -156,7 +156,7 @@ class external extends external_api {
      * @return external_function_parameters
      */
     public static function set_url_parameters(): external_function_parameters {
-        return new external_function_parameters (
+        return new external_function_parameters(
             [
                 'hash' => new external_value(PARAM_TEXT, 'URL HASH', VALUE_REQUIRED),
                 'title' => new external_value(PARAM_RAW, 'The title of the url', VALUE_REQUIRED),
@@ -179,7 +179,8 @@ class external extends external_api {
         return new external_single_structure(
             [
                 'result_code' => new external_value(PARAM_INT, 'The response code', VALUE_REQUIRED),
-            ]);
+            ]
+        );
     }
 
     /**
@@ -214,7 +215,7 @@ class external extends external_api {
      * @return external_function_parameters
      */
     public static function delete_url_parameters(): external_function_parameters {
-        return new external_function_parameters (
+        return new external_function_parameters(
             [
                 'hash' => new external_value(PARAM_TEXT, 'URL HASH', VALUE_REQUIRED),
                 'blockid' => new external_value(PARAM_INT, 'The ID of the block', VALUE_REQUIRED),
@@ -231,7 +232,8 @@ class external extends external_api {
         return new external_single_structure(
             [
                 'result_code' => new external_value(PARAM_INT, 'The response code', VALUE_REQUIRED),
-            ]);
+            ]
+        );
     }
 
     /**
@@ -268,7 +270,7 @@ class external extends external_api {
      * @return external_function_parameters
      */
     public static function get_content_parameters(): external_function_parameters {
-        return new external_function_parameters (
+        return new external_function_parameters(
             [
                 'url' => new external_value(PARAM_URL, 'The current url', VALUE_REQUIRED),
                 'blockid' => new external_value(PARAM_INT, 'The ID of the block', VALUE_REQUIRED),
@@ -286,7 +288,7 @@ class external extends external_api {
             [
                 'result_code' => new external_value(PARAM_INT, 'The response code', VALUE_REQUIRED),
                 'content' => new external_value(PARAM_RAW, 'The block content', VALUE_REQUIRED),
-            ]);
+            ]
+        );
     }
-
 }
