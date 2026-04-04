@@ -34,7 +34,6 @@ use block_user_favorites\output\output_favorites;
  * @copyright  26-10-2018 MFreak.nl
  */
 class block_user_favorites extends block_base {
-
     /**
      * Set the initial properties for the block
      *
@@ -124,11 +123,11 @@ class block_user_favorites extends block_base {
         $this->content = new stdClass();
         $favorites = new favorites($USER->id);
         $renderer = $this->page->get_renderer('block_user_favorites');
-        $this->content->text = $renderer->render_favorites(new output_favorites($favorites,
-            $url));
+        $this->content->text = $renderer->render_favorites(new output_favorites(
+            $favorites,
+            $url
+        ));
 
         return $this->content;
     }
-
 }
-

@@ -33,7 +33,6 @@ use block_user_favorites\output\output_favorites;
  * @copyright  26-10-2018 MFreak.nl
  */
 class block_user_favorites_renderer extends plugin_renderer_base {
-
     /**
      * Render favorites
      *
@@ -47,5 +46,4 @@ class block_user_favorites_renderer extends plugin_renderer_base {
 
         return $this->render_from_template('block_user_favorites/favorites', $data);
     }
-
 }

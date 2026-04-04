@@ -36,7 +36,6 @@ function xmldb_block_user_favorites_upgrade(int $oldversion): bool {
     global $DB;
     $dbman = $DB->get_manager();
     if ($oldversion < 2019062400) {
-
         // Define table block_user_favorites to be created.
         $table = new xmldb_table('block_user_favorites');
 

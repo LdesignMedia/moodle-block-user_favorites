@@ -34,7 +34,6 @@
  * @author     Luuk Verhoeven
  */
 class block_user_favorites_edit_form extends block_edit_form {
-
     /**
      * specific_definition
      *
@@ -51,5 +50,4 @@ class block_user_favorites_edit_form extends block_edit_form {
         $mform->setDefault('config_title', get_string('pluginname', 'block_user_favorites'));
         $mform->setType('config_title', PARAM_TEXT);
     }
-
 }

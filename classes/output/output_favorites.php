@@ -40,7 +40,6 @@ use templatable;
  * @copyright  26-10-2018 MFreak.nl
  */
 class output_favorites implements renderable, templatable {
-
     /**
      * @var favorites $favorites Favorites
      */
@@ -79,10 +78,8 @@ class output_favorites implements renderable, templatable {
         $data = [];
         $hascurrenturl = false;
         if ($this->favorites->has_favorites()) {
-
             $favorites = $this->favorites->get_all();
             foreach ($favorites as $favorite) {
-
                 $favoriteurls = [
                     $favorite->url,
                     $favorite->url . 'index.php',
@@ -109,5 +106,4 @@ class output_favorites implements renderable, templatable {
             'hascurrenturl' => $hascurrenturl,
         ];
     }
-
 }

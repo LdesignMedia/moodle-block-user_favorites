@@ -43,19 +43,17 @@ use core_privacy\local\request\writer;
  * @copyright  26-10-2018 MFreak.nl
  */
 class provider implements
+    // This plugin is capable of determining which users have data within it.
+    core_userlist_provider,
 
     // The block_html block stores user provided data.
     \core_privacy\local\metadata\provider,
-
-    // This plugin is capable of determining which users have data within it.
-    core_userlist_provider,
 
     // The block_user_favorites provides data directly to core.
     \core_privacy\local\request\plugin\provider,
 
     // Previous version of this block used user_preference.
     user_preference_provider {
-
     /**
      * Returns meta-data information about the block_user_favorites.
      *
@@ -139,7 +137,6 @@ class provider implements
      * @throws coding_exception
      */
     public static function export_user_data(approved_contextlist $contextlist): void {
-
         // If the user has block_community data, then only the User context should be present so get the first context.
         $contexts = $contextlist->get_contexts();
         if (count($contexts) == 0) {
@@ -159,8 +156,10 @@ class provider implements
 
         // Stored on user context.
         $user = $contextlist->get_user();
-        writer::with_context($context)->export_data($subcontext,
-            (object) ['links' => self::get_urls($user->id)]);
+        writer::with_context($context)->export_data(
+            $subcontext,
+            (object) ['links' => self::get_urls($user->id)]
+        );
     }
 
     /**
@@ -234,8 +233,12 @@ class provider implements
     public static function export_user_preferences(int $userid): void {
         $preference = get_user_preferences('user_favorites', null, $userid);
         if (isset($preference)) {
-            writer::export_user_preference('user_favorites', '',
-                $preference, get_string('privacy:metadata:links', 'block_user_favorites'));
+            writer::export_user_preference(
+                'user_favorites',
+                '',
+                $preference,
+                get_string('privacy:metadata:links', 'block_user_favorites')
+            );
         }
     }
 
@@ -254,5 +257,4 @@ class provider implements
         // Todo convert timestamp to readable format.
         return $favorites->get_all();
     }
-
 }
