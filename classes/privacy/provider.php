@@ -43,16 +43,9 @@ use core_privacy\local\request\writer;
  * @copyright  26-10-2018 MFreak.nl
  */
 class provider implements
-    // This plugin is capable of determining which users have data within it.
-    core_userlist_provider,
-
-    // The block_html block stores user provided data.
     \core_privacy\local\metadata\provider,
-
-    // The block_user_favorites provides data directly to core.
     \core_privacy\local\request\plugin\provider,
-
-    // Previous version of this block used user_preference.
+    core_userlist_provider,
     user_preference_provider {
     /**
      * Returns meta-data information about the block_user_favorites.
