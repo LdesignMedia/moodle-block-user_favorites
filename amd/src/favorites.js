@@ -23,9 +23,9 @@
  **/
 
 /* eslint no-unused-expressions: "off", no-console:off, no-invalid-this:"off",no-script-url:"off", block-scoped-var: "off" */
-define(['jquery', 'core/ajax', 'core/notification', 'core/log', 'core/sortable_list', 'core/modal_factory',
+define(['jquery', 'core/ajax', 'core/notification', 'core/log', 'core/sortable_list', 'core/modal_save_cancel',
     'core/modal_events', 'core/str'],
-    function($, Ajax, Notification, Log, SortableList, ModalFactory, ModalEvents, Str) {
+    function($, Ajax, Notification, Log, SortableList, ModalSaveCancel, ModalEvents, Str) {
 
         /**
          * Opts that are possible to set.
@@ -100,15 +100,12 @@ define(['jquery', 'core/ajax', 'core/notification', 'core/log', 'core/sortable_l
                     {key: 'javascript:set_title', component: 'block_user_favorites'},
                     {key: 'javascript:yes', component: 'block_user_favorites'},
                     {key: 'javascript:no', component: 'block_user_favorites'},
-                ]).then(function(strings) {
-                    return ModalFactory.create({
-                        type: ModalFactory.types.SAVE_CANCEL,
+                ]).then(async function(strings) {
+                    const modal = await ModalSaveCancel.create({
                         title: strings[0],
                         body: '<input class="form-control" id="favorite-url" value="'
                             + title.replace(/"/g, '&quot;') + '">',
                     });
-                }).then(function(modal) {
-                    modal.setSaveButtonText(Str.get_string('javascript:yes', 'block_user_favorites'));
                     modal.getRoot().on(ModalEvents.save, function() {
                         let request = Ajax.call([{
                             methodname: 'block_user_favorites_set_url', args: {
